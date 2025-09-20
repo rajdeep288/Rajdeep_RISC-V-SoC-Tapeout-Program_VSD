@@ -14,10 +14,8 @@ This repository captures my **week-by-week progress** in the **VSD-HDP program**
 
 ### 🔽 Week-wise Progress Logs
 
-| Week    | Topics Covered       | Status   |
-|---------|--------------------|---------|
-| [Week 0: Tools Installation](#week0) | Tool Installation | ✅ Done |
-
+| Week    | Topics Covered | Status   |
+|---------|----------------|---------|
+| Week 0  | [Tool Installation](#week0) | ✅ Done |
 
 ---
-
