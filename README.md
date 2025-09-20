@@ -1,1 +1,1 @@
-# Rajdeep_RISC-V-SoC-Tapeout-Program_VSD
+# Week 0: VLSI System Design (VSD) Program Foundation & Tool Setup
