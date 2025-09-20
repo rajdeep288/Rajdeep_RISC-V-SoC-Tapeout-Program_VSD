@@ -43,7 +43,7 @@ sudo make install
 
 **Installation Verification**
 
-![image.png](yosys_installation_completed.png)
+![image.png](images/yosys_installation_completed.png)
 
 ## **2.Iverilog**
 
@@ -54,7 +54,7 @@ $ sudo apt-get install iverilog
 
 **Installation Verification**
 
-![image.png](iverilog_installation_completed.png)
+![image.png](images/iverilog_installation_completed.png)
 
 ### **3.gtkwave**
 
@@ -65,4 +65,4 @@ $ sudo apt install gtkwave
 
 **Installation Verification**
 
-![image.png](gtkwave_installation_completed.png)
+![image.png](images/gtkwave_installation_completed.png)
