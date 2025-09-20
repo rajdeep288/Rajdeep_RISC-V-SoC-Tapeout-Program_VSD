@@ -1,6 +1,6 @@
 ## **VSD RISCV SoC Tapeout Program**
 
- Week 0:  Tool Setup
+# 🚀 **Week 0: Tool Setup**
 
 ### **Tools Installation**
 
