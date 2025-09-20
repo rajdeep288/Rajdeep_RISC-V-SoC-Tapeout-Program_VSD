@@ -14,6 +14,6 @@ This repository captures my **week-by-week progress** in the **VSD-HDP program**
 
 | Week    | Topics Covered | Status   |
 |---------|----------------|---------|
-| Week 0  | [Tool Installation](#week0) | ✅ Done |
+| Week 0  | [Tool Installation](#Rajdeep_RISC-V-SoC-Tapeout-Program_VSD-week0) | ✅ Done |
 
 ---
