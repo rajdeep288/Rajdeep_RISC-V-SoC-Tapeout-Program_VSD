@@ -38,8 +38,7 @@ By integrating multiple system components into one chip, SoCs simplify **circuit
 
 ## 🌀 The SoC Design Flow
 
-![SoC Design Flow](attachment:6d9398c5-6268-4fb4-aae6-1eaffaa5429f:Gemini_Generated_Image_4qo8pw4qo8pw4qo8.png)
-
+![image.png](Images/soc_design_flow.png)
 
 ---
 
@@ -72,7 +71,7 @@ The **VSDBabySoC** is an open-source, educational **System-on-Chip** 💡, desig
 
 *The core goals of **VSDBabySoC** are to **validate the integration of analog and digital IPs** and to serve as an **educational platform** for the open-source fabrication flow (e.g., SkyWater 130 nm PDK). 🔬🎓*
 
-![image.png](attachment:a1500066-f082-4644-9b78-f95445e2a7f3:image.png)
+![image.png](Images/vsdbaby_soc.png)
 
 ---
 
@@ -158,8 +157,7 @@ gtkwave output/pre_synth_sim/pre_synth_sim.vcd
 
 ### **📈 Pre_synth_sim Waveform**
 
-
-![image.png](attachment:f52e2fea-5561-4392-abcb-ff59d7a1c49b:image.png)
+![image.png](Images/waveform.png)
 
 
 
@@ -197,3 +195,8 @@ V_{out} \approx \mathbf{0.369501466 \text{ V}}
 $$
 
 This calculated value of $\mathbf{0.369501466 \text{ V}}$ is precisely the simulated analog output shown on the **OUT (Real Wire)** in the waveform for a digital input of $378$, confirming the correct operation of the DAC.
+
+### References
+
+* [VSD Baby SoC]( https://github.com/manili/VSDBabySoC )
+* [Spath VSD](https://github.com/spatha0011/spatha_vsd-hdp/tree/main/Day5)
