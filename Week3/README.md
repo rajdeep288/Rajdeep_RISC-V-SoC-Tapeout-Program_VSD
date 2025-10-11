@@ -18,23 +18,23 @@ During synthesis, high-level Verilog code is converted into a network of logic g
 ## **Synthesis & Netlist Generation Flow:**
 
 ### **Step 1: Initialize the Top Module and Its Dependencies**
-
+```bash
 read_verilog src/module/vsdbabysoc.v
 
 read_verilog -I /home/rajdeep/Risc-VSoCTapeout/VSDBabySoC/src/include/ /home/rajdeep/Risc-VSoCTapeout/VSDBabySoC/output/compiled_tlv/rvmyth.v
 
 read_verilog -I /home/rajdeep/Risc-VSoCTapeout/VSDBabySoC/src/include/ /home/rajdeep/Risc-VSoCTapeout/VSDBabySoC/src/module/clk_gate.v
-
+```
 ### **Step 2: Load the Liberty Files for Synthesis**
-
+```bash
 read_liberty -lib src/lib/avsdpll.lib
 read_liberty -lib src/lib/avsddac.lib
 read_liberty -lib src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-
+```
 **Step 3: Run Synthesis Targeting `vsdbabysoc`**
 `yosys> synth -top vsdbabysoc`
 
-![image.png](attachment:ba681f7b-10f9-442d-8077-a8641fe2f495:image.png)
+![image.png](Images/run_synthesis.png)
 
 **Step 4: Map D Flip-Flops to Standard Cells**
 
@@ -42,8 +42,7 @@ read_liberty -lib src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 >dfflibmap -liberty /home/rajdeep/Risc-VSoCTapeout/VSDBabySoC/src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
 
-![image.png](attachment:2bad6bc3-9dbc-42aa-865d-d6cbc549fea5:image.png)
-
+![image.png](Images/dff_mapping.png)
 **Step 5: Perform Optimization and Technology Mapping**
 
 ```bash
@@ -51,7 +50,7 @@ read_liberty -lib src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 >abc -liberty /home/rajdeep/Risc-VSoCTapeout/VSDBabySoC/src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
 
-![image.png](attachment:66544878-d566-4072-bbe9-f6cdbbe3baf2:image.png)
+![image.png](Images/opt_and_techmapping.png)
 
 **Step 6: Perform Final Clean-Up and Renaming**
 
@@ -66,7 +65,7 @@ yosys> rename -enumerate
 
 stat
 
-![image.png](attachment:c9c2e806-c852-447b-8529-cda5023fe601:image.png)
+![image.png](Images/stat.png)
 
 **Step 8: Write the Synthesized Netlist**
 
@@ -74,7 +73,7 @@ stat
 yosys> write_verilog -noattr /home/rajdeep/Risc-VSoCTapeout/VSDBabySoC/output/post_synth_sim/vsdbabysoc.synth.v
 ```
 
-![image.png](attachment:9bb2ce26-7cb6-4fe0-a7cc-8765b449d35e:image.png)
+![image.png](Images/run_synthesis.png)
 
 ## **POST_SYNTHESIS SIMULATION AND WAVEFORMS**
 
@@ -84,15 +83,15 @@ yosys> write_verilog -noattr /home/rajdeep/Risc-VSoCTapeout/VSDBabySoC/output/po
 rajdeep@Rajdeep:~/Risc-VSoCTapeout/VSDBabySoC$ iverilog -o /home/rajdeep/Risc-VSoCTapeout/VSDBabySoC/output/post_synth_sim/post_synth_sim.out -DPOST_SYNTH_SIM -DFUNCTIONAL -DUNIT_DELAY=1 -I /home/rajdeep/Risc-VSoCTapeout/VSDBabySoC/src/include/ -I /home/rajdeep/Risc-VSoCTapeout/VSDBabySoC/src/module/ /home/rajdeep/Risc-VSoCTapeout/VSDBabySoC/src/module/testbench.v
 ```
 
-![image.png](attachment:3a30e66e-2944-450e-83fa-64e64f711b15:image.png)
+![image.png](Images/waveform_pot_synthesis.png)
 
 **Post Synthesis Simulation Waveform**
 
-![image.png](attachment:fb4a0397-202b-4c9c-b541-80549a64d370:image.png)
+![image.png](Images/post_syn_sim_vcd.png)
 
 **Comparisor Between Pre Synthesis and Post Synthesis**
 
-![image.png](attachment:7e0ef6a9-ed5f-4137-a940-732f7abdd6b6:image.png)
+![image.png](Images/comp_pre_&_post_synth.png)
 
 ## ⏱️ Static Timing Analysis (STA)
 
@@ -119,7 +118,7 @@ It checks critical parameters such as **setup time**, **hold time**, **clock ske
 
 ### **STA in CMOS Design Flow**
 
-![image.png](attachment:53d9b120-4dbf-4cd4-9e26-0601c2861418:image.png)
+![image.png](Images/sta_in_cmos.png)
 
 # OpenSTA
 
@@ -129,7 +128,7 @@ OpenSTA, an open-source static timing analyzer, is used to check and ensure the 
 
 OpenSTA uses a TCL-based command interface to read designs, apply timing constraints, and produce timing analysis reports.
 
-![image.png](attachment:e7f974c7-4d3b-4412-b352-458da0ad6781:image.png)
+![image.png](Images/opensta_block.png)
 
 **Input Files**
 
@@ -188,7 +187,7 @@ Timing paths are the logical routes a signal takes through a digital circuit, fr
 - The **longest timing path** in the design.
 - Determines the **maximum operating frequency** of the circuit.
 
-![image.png](attachment:0d7b6af6-5394-46fd-a08f-ed17c3b32767:image.png)
+![image.png](Images/timing_path.png)
 
 ### 🔹 Setup Check
 
@@ -320,7 +319,7 @@ rajdeep@Rajdeep:~$ sudo docker run -it -v /home/rajdeep/Risc-VSoCTapeout/VSDBaby
 
 ### **Executed Script Screenshot:**
 
-![image.png](attachment:c3638259-c912-4837-8f42-b08c31bf355e:image.png)
+![image.png](Images/script1_ex.png)
 
 ### **VSDBabySoC PVT Corner Analysis (Post-Synthesis Timing)**
 
@@ -407,7 +406,7 @@ rajdeep@Rajdeep:~$ sudo docker run -it -v /home/rajdeep/Risc-VSoCTapeout/VSDBaby
 
 📂 **Generated Output Directory:**
 
-![image.png](attachment:1062fb5f-b936-4d0d-b9bd-3ac08a4c9497:image.png)
+![image.png](Images/gen_op_dir.png)
 
 | **🗂️ File Name** | **📘 Description** |
 | --- | --- |
@@ -423,19 +422,19 @@ The following plots summarize the timing results across 13 PVT corners.
 
 **Worst Hold Slack:**
 
-![worst_case_hold_slack.png](attachment:79f1f838-fd88-4972-af87-da5989dbd2b0:worst_case_hold_slack.png)
+![worst_case_hold_slack.png](Images/worst_case_hold_slack.png)
 
 **Worst Setup Slack:**
 
-![worst_case_setup_slack.png](attachment:fbafb642-1718-48f0-9b22-90eda7bb0fd8:worst_case_setup_slack.png)
+![worst_case_setup_slack.png](Images/worst_case_setup_slack.png)
 
 **WNS (Worst Negative Slack):**
 
-![WNS.png](attachment:632c6f82-0d5b-442c-93c4-19e57c7ad05c:WNS.png)
+![WNS.png](Images/WNS.png)
 
 **TNS(Total Negative Slack) :**
 
-![TNS.png](attachment:803b8883-8fc9-4d77-8ace-724dc6847508:TNS.png)
+![TNS.png](Images/TNS.png)
 
 ✅ **Final Summary:**
 
