@@ -63,9 +63,9 @@ yosys> rename -enumerate
 ```
 
 **Step 7: Check Statistics**
-
+```bash
 stat
-
+```
 ![image.png](Images/stat.png)
 
 **Step 8: Write the Synthesized Netlist**
