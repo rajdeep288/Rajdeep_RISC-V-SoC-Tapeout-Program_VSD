@@ -296,9 +296,10 @@ run
 | Rise (`t_pLH`) | (2.48264 − 2.15069) × 10⁻⁹ | **331.95 ps** |
 | Fall (`t_pHL`) | (4.33515 − 4.05) × 10⁻⁹ | **285.15 ps** |
 
-## 5️⃣ Noise Margin / Robustness Analysis
+## **5️⃣ Noise Margin / Robustness Analysis**
 
-###🎯 **Objective**
+### 🎯 **Objective**
+
 To determine the noise margins of a CMOS inverter by analyzing its Voltage Transfer Characteristic (VTC) and identifying the critical points — $V_{IL}$, $V_{IH}$, $V_{OL}$, and $V_{OH}$. This experiment quantifies the circuit’s tolerance to input voltage noise, ensuring reliable logic-level recognition and robust digital operation.
 
 ![image.png](Images/cmos_vtc.png)
