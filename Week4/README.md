@@ -58,7 +58,7 @@ setplot dc1
 
  Steps for plot Id vs Vds curve
 
-![image.png](attachment:16e76266-a706-4bda-993a-dcdd514e195a:image.png)
+![image.png](Images/repo_clone.png)
 
 ## Id vs Vds Curve:
 
@@ -66,7 +66,7 @@ The $I_D$–$V_{DS}$ characteristics show how the drain current varies with the 
 
 It helps identify the MOSFET’s operating regions — cutoff, triode, and saturation.
 
-![image.png](attachment:a71ddac9-a7ba-4477-9335-526c35239423:image.png)
+![image.png](Images/IdvsVds1.png)
 
 ## **Observations / Analysis: ID vs VDS**
 
@@ -164,13 +164,13 @@ setplot dc1
 
 **1️⃣ Id Vs Vgs Graph:**
 
-![image.png](attachment:5ea6da21-1d23-4f05-a4b5-dd569876389b:image.png)
+![image.png](Images/idvsVgs1.png)
 
 - **Threshold Voltage** : 0.6 V
 
 **2️⃣  Id Vs Vds Graph(Short Channel):**
 
-![image.png](attachment:2964e6c1-98d2-4088-87ab-652189569696:image.png)
+![image.png](Images/idvsVds_shortchannel.png)
 
 ## 🔬 **Observations & Analysis:**
 
@@ -237,7 +237,7 @@ display
 
 ### **Vout vs Vin Plot:**
 
-![image.png](attachment:0295c4b0-b9fc-414e-bc37-664bf46056cb:image.png)
+![image.png](Images/vtc1.png)
 
 - **Switching Threshold** = 0.8769 v
 
@@ -279,7 +279,7 @@ run
 
 ## 📊 **Simulation Results and Plots**
 
-![image.png](attachment:9227c7f9-d83d-4cf5-8b7c-3912573c3acf:image.png)
+![image.png](Images/transient1.png)
 
  **Points from the plot:**
 
@@ -299,7 +299,7 @@ run
 
 To determine the **noise margins** of a CMOS inverter by analyzing its **Voltage Transfer Characteristic (VTC)** and identifying the critical points — VILV_{IL}VIL, VIHV_{IH}VIH, VOLV_{OL}VOL, and VOHV_{OH}VOH. This experiment quantifies the circuit’s **tolerance to input voltage noise**, ensuring reliable logic-level recognition and robust digital operation.
 
-![image.png](attachment:80f7e088-1063-4535-8b2e-c646fb3571a5:image.png)
+![image.png](Images/cmos_vtc.png)
 
 ## **💻 SPICE Netlists and Code**
 
@@ -338,7 +338,7 @@ display
 
 ## 📊 **Simulation Results and Plots**
 
-![image.png](attachment:23dcd012-5730-40c5-a0dd-7b27bc85afc1:image.png)
+![image.png](Images/vtc2.png)
 
 ### Values taken from the graph:
 
@@ -400,7 +400,7 @@ display
 
 ## 📊 **Simulation Results and Plots**
 
-![image.png](attachment:9fa9218d-8ab9-4e0f-bd73-558682ae26d5:image.png)
+![image.png](Images/device_vary.png)
 
 **Switching Threshold** = 0.989 V
 
@@ -460,7 +460,7 @@ plot dc1.out vs in dc2.out vs in dc3.out vs in dc4.out vs in dc5.out vs in dc6.o
 
 ## **📊 Simulation Results and Plots**
 
-![image.png](attachment:8fae0d0f-dcfa-40e9-99e2-10b0f9a9bd4c:image.png)
+![image.png](Images/supplyvary.png)
 
 ### Noise Margin for Supply Variations:
 
