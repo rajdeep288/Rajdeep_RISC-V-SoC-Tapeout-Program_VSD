@@ -20,7 +20,7 @@ cd sky130CircuitDesignWorkshop/design
 
 ## **1️⃣ MOSFET Behavior & Id vs. Vds Characteristics**
 
-## 🧠 **Introduction**
+## 🎯 **Objective**
 
 -To map out the **fundamental operating regions** (linear and saturation) of a MOSFET. This shows how channel current ($I_D$) is controlled by both $V_{GS}$ and $V_{DS}$.
 
@@ -90,8 +90,7 @@ It helps identify the MOSFET’s operating regions — cutoff, triode, and satur
 
 ## **2️⃣** Threshold Voltage Extraction & Velocity Saturation
 
-## 🧠 **Introduction:**
-
+## 🎯 **Objective**
 It determines the gate-source voltage (VT) required to turn on the MOSFET and observes short-channel effects, such as velocity saturation, that influence the transistor’s current and switching behavior.
 
 ## **💻 SPICE Netlists and Code**
@@ -194,7 +193,7 @@ setplot dc1
 
 ## 3️⃣ Voltage Transfer Characteristic (VTC)
 
-## 🧠 **Introduction:**
+## 🎯 **Objective**
 
 To build a CMOS inverter using PMOS and NMOS transistors, sweep the input voltage (V_IN), and plot the output voltage (V_OUT) to identify the **switching threshold (V_M)**, where V_IN = V_OUT.
 
@@ -243,7 +242,7 @@ display
 
 ## **4️⃣ Transient Behavior: Rise and Fall Delays**
 
-### **Objective:**
+### 🎯 **Objective**
 
 To analyze the **dynamic switching response**of a CMOS inverter by applying a pulse input and measuring the **rise (t<sub>pLH</sub>)** and**fall (t<sub>pHL</sub>)** propagation delays. This helps in understanding how quickly the inverter output transitions between logic states and how these delays affect the overall circuit speed.
 
@@ -282,22 +281,25 @@ run
 ![image.png](Images/transient1.png)
 
  **Points from the plot:**
+**Rise Transition:**
 
-- Rise: x1=2.15069×10−9 s, x2=2.48264×10−9 sx_1 = 2.15069\times10^{-9}\,\mathrm{s},\; x_2 = 2.48264\times10^{-9}\,\mathrm{s}x1=2.15069×10−9s,x2=2.48264×10−9s
-- Fall: x1=4.05×10−9 s, x2=4.33515×10−9 sx_1 = 4.05\times10^{-9}\,\mathrm{s},\; x_2 = 4.33515\times10^{-9}\,\mathrm{s}x1=4.05×10−9s,x2=4.33515×10−9s
+- `x1 = 2.15069 × 10⁻⁹ s`
+- `x2 = 2.48264 × 10⁻⁹ s`
 
-**Calculation (delay = x₂ − x₁)**
+**Fall Transition:**
 
-| Delay type | Value (ps) |
-| --- | --- |
-| Rise (tₚLH) | 331.950 ps |
-| Fall (tₚHL) | 285.150 ps |
+- `x1 = 4.05 × 10⁻⁹ s`
+- `x2 = 4.33515 × 10⁻⁹ s`
+
+| Delay Type | Calculation | Value (ps) |
+| --- | --- | --- |
+| Rise (`t_pLH`) | (2.48264 − 2.15069) × 10⁻⁹ | **331.95 ps** |
+| Fall (`t_pHL`) | (4.33515 − 4.05) × 10⁻⁹ | **285.15 ps** |
 
 ## 5️⃣ Noise Margin / Robustness Analysis
 
-**Objective:**
-
-To determine the **noise margins** of a CMOS inverter by analyzing its **Voltage Transfer Characteristic (VTC)** and identifying the critical points — VILV_{IL}VIL, VIHV_{IH}VIH, VOLV_{OL}VOL, and VOHV_{OH}VOH. This experiment quantifies the circuit’s **tolerance to input voltage noise**, ensuring reliable logic-level recognition and robust digital operation.
+###🎯 **Objective**
+To determine the noise margins of a CMOS inverter by analyzing its Voltage Transfer Characteristic (VTC) and identifying the critical points — $V_{IL}$, $V_{IH}$, $V_{OL}$, and $V_{OH}$. This experiment quantifies the circuit’s tolerance to input voltage noise, ensuring reliable logic-level recognition and robust digital operation.
 
 ![image.png](Images/cmos_vtc.png)
 
@@ -342,10 +344,10 @@ display
 
 ### Values taken from the graph:
 
-- VOH=1.73617 VV_{OH} = 1.73617\text{ V}VOH=1.73617 V
-- VOL=0.0744681 VV_{OL} = 0.0744681\text{ V}VOL=0.0744681 V
-- VIL=0.754167 VV_{IL} = 0.754167\text{ V}VIL=0.754167 V
-- VIH=0.998958 VV_{IH} = 0.998958\text{ V}VIH=0.998958 V
+- **`VOH`** = 1.73617 V
+- **`VOL`** = 0.0744681 V
+- **`VIL`** = 0.754167 V
+- **`VIH`** = 0.998958 V
 
 ---
 
@@ -353,8 +355,8 @@ display
 
 | Parameter | Formula | Calculated Value (V) | Interpretation |
 | --- | --- | --- | --- |
-| **NM<sub>H</sub>** | VOH−VIHV_{OH} - V_{IH}VOH−VIH | **0.737 V** | Tolerance for noise on logic HIGH |
-| **NM<sub>L</sub>** | VIL−VOLV_{IL} - V_{OL}VIL−VOL | **0.680 V** | Tolerance for noise on logic LOW |
+| **`NMH`** | `VOH − VIH` | **0.737** | Tolerance for noise on logic HIGH |
+| **`NML`** | `VIL − VOL` | **0.680** | Tolerance for noise on logic LOW |
 
 ## 6️⃣ Power-Supply and Device Variation Studies
 
@@ -405,11 +407,10 @@ display
 **Switching Threshold** = 0.989 V
 
 ### Points after Device variation( W change from 1 ⇒7 )
-
-- VOH=1.73191 V
-- VOL=0.0574468 VV_{OL} = 0.0574468\text{ V}VOL=0.0574468 V
-- VIL=0.8875 VV_{IL} = 0.8875\text{ V}VIL=0.8875 V
-- VIH=1.15312 VV_{IH} = 1.15312\text{ V}VIH=1.15312 V
+- **`VOH`** = 1.73191 V
+- **`VOL`** = 0.0574468 V
+- **`VIL`** = 0.8875 V
+- **`VIH`** = 1.15312 V
 
 ---
 
@@ -417,8 +418,9 @@ display
 
 | Parameter | Formula | Calculated Value (V) | Interpretation |
 | --- | --- | --- | --- |
-| **NM<sub>H</sub>** | VOH−VIHV_{OH} - V_{IH}VOH−VIH | **0.579 V** | Noise tolerance for logic HIGH (reduced) |
-| **NM<sub>L</sub>** | VIL−VOLV_{IL} - V_{OL}VIL−VOL | **0.830 V** | Noise tolerance for logic LOW (increased) |
+| **`NMH`** | `VOH − VIH` | **0.579** | Noise tolerance for logic HIGH (reduced) |
+| **`NML`** | `VIL − VOL` | **0.830** | Noise tolerance for logic LOW (increased) |
+
 
 ### **Supply Variation:**
 
@@ -464,20 +466,14 @@ plot dc1.out vs in dc2.out vs in dc3.out vs in dc4.out vs in dc5.out vs in dc6.o
 
 ### Noise Margin for Supply Variations:
 
-| VDD (V) | VOH (V) | VOL (V) | VIL (V) | VIH (V) | NM_H = VOH-VIH (V) | NM_L = VIL-VOL (V) |
+| **VDD (V)** | **VOH (V)** | **VOL (V)** | **VIL (V)** | **VIH (V)** | **NM_H = VOH − VIH (V)** | **NM_L = VIL − VOL (V)** |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1.8 | 1.72979 | 0.0851064 | 0.757292 | 1 | 0.72979 | 0.672186 |
-| --- | --- | --- | --- | --- | --- | --- |
-| 1.6 | 1.54894 | 0.0531915 | 0.695833 | 0.89375 | 0.65519 | 0.6426415 |
-| --- | --- | --- | --- | --- | --- | --- |
-| 1.4 | 1.3617 | 0.055319 | 0.628125 | 0.775 | 0.5867 | 0.572806 |
-| --- | --- | --- | --- | --- | --- | --- |
-| 1.2 | 1.17872 | 0.0361702 | 0.55 | 0.676042 | 0.502678 | 0.5138298 |
-| --- | --- | --- | --- | --- | --- | --- |
-| 1.0 | 0.97234 | 0.0319149 | 0.485417 | 0.5864 | 0.38594 | 0.4535021 |
-| --- | --- | --- | --- | --- | --- | --- |
-| 0.8 | 0.791489 | 0.0255319 | 0.401042 | 0.5125 | 0.278989 | 0.3755101 |
-| --- | --- | --- | --- | --- | --- | --- |
+| 1.8 | 1.72979 | 0.0851064 | 0.757292 | 1.00000 | 0.72979 | 0.672186 |
+| 1.6 | 1.54894 | 0.0531915 | 0.695833 | 0.89375 | 0.65519 | 0.642642 |
+| 1.4 | 1.36170 | 0.0553190 | 0.628125 | 0.77500 | 0.58670 | 0.572806 |
+| 1.2 | 1.17872 | 0.0361702 | 0.550000 | 0.676042 | 0.50268 | 0.513830 |
+| 1.0 | 0.97234 | 0.0319149 | 0.485417 | 0.58640 | 0.38594 | 0.453502 |
+| 0.8 | 0.791489 | 0.0255319 | 0.401042 | 0.51250 | 0.278989 | 0.375510 |
 
 ### **Observations / Analysis:**
 
